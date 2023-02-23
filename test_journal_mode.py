@@ -13,7 +13,7 @@ def current_journal_mode(con):
 
 
 def error(message):
-    print(f'\033[1m\033[91m!!! WARNING: {message}\033[0m', file=sys.stderr)
+    print(f'\033[1m\033[91m!!! WARNING: {message}\033[0m')
 
 
 def journal_mode_off_reuse_connection_without_cursor_close(desired_mode):
