@@ -1,0 +1,7 @@
+FROM registry.access.redhat.com/ubi8/ubi-minimal
+
+RUN microdnf update && microdnf install -y python39
+
+ENV desired_mode off
+COPY test_journal_mode.py .
+CMD python3 test_journal_mode.py ${desired_mode}
