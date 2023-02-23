@@ -1,0 +1,500 @@
+
+####################
+# Attempting to set journal_mode=off
+
+##########
+# Default /usr/bin/python3
+[1m[91m!!! WARNING: "delete" is not "off"[0m
+[1m[91m!!! WARNING: "delete" is not "off"[0m
+##########
+/Library/Developer/CommandLineTools/usr/bin/python3
+Python 3.9.6 (default, Oct 18 2022, 12:41:40) 
+[Clang 14.0.0 (clang-1400.0.29.202)] on darwin
+Sqlite 3.39.5
+----------
+Set journal_mode and check it without closing the cursor (should keep desired mode).
+journal_mode before: delete
+journal_mode after: delete
+sqlite's pragma compile_options are:
+[('ATOMIC_INTRINSICS=1',), ('BUG_COMPATIBLE_20160819',), ('CCCRYPT256',), ('COMPILER=clang-14.0.0',), ('DEFAULT_AUTOVACUUM',), ('DEFAULT_CACHE_SIZE=2000',), ('DEFAULT_CKPTFULLFSYNC',), ('DEFAULT_FILE_FORMAT=4',), ('DEFAULT_JOURNAL_SIZE_LIMIT=32768',), ('DEFAULT_LOOKASIDE=1200,102',), ('DEFAULT_MEMSTATUS=0',), ('DEFAULT_MMAP_SIZE=0',), ('DEFAULT_PAGE_SIZE=4096',), ('DEFAULT_PCACHE_INITSZ=20',), ('DEFAULT_RECURSIVE_TRIGGERS',), ('DEFAULT_SECTOR_SIZE=4096',), ('DEFAULT_SYNCHRONOUS=2',), ('DEFAULT_WAL_AUTOCHECKPOINT=1000',), ('DEFAULT_WAL_SYNCHRONOUS=1',), ('DEFAULT_WORKER_THREADS=0',), ('ENABLE_API_ARMOR',), ('ENABLE_BYTECODE_VTAB',), ('ENABLE_COLUMN_METADATA',), ('ENABLE_DBSTAT_VTAB',), ('ENABLE_FTS3',), ('ENABLE_FTS3_PARENTHESIS',), ('ENABLE_FTS3_TOKENIZER',), ('ENABLE_FTS4',), ('ENABLE_FTS5',), ('ENABLE_LOCKING_STYLE=1',), ('ENABLE_NORMALIZE',), ('ENABLE_PREUPDATE_HOOK',), ('ENABLE_RTREE',), ('ENABLE_SESSION',), ('ENABLE_SNAPSHOT',), ('ENABLE_SQLLOG',), ('ENABLE_STMT_SCANSTATUS',), ('ENABLE_UNKNOWN_SQL_FUNCTION',), ('ENABLE_UPDATE_DELETE_LIMIT',), ('HAS_CODEC_RESTRICTED',), ('HAVE_ISNAN',), ('MALLOC_SOFT_LIMIT=1024',), ('MAX_ATTACHED=10',), ('MAX_COLUMN=2000',), ('MAX_COMPOUND_SELECT=500',), ('MAX_DEFAULT_PAGE_SIZE=8192',), ('MAX_EXPR_DEPTH=1000',), ('MAX_FUNCTION_ARG=127',), ('MAX_LENGTH=2147483645',), ('MAX_LIKE_PATTERN_LENGTH=50000',), ('MAX_MMAP_SIZE=1073741824',), ('MAX_PAGE_COUNT=1073741823',), ('MAX_PAGE_SIZE=65536',), ('MAX_SQL_LENGTH=1000000000',), ('MAX_TRIGGER_DEPTH=1000',), ('MAX_VARIABLE_NUMBER=500000',), ('MAX_VDBE_OP=250000000',), ('MAX_WORKER_THREADS=8',), ('MUTEX_UNFAIR',), ('OMIT_AUTORESET',), ('OMIT_LOAD_EXTENSION',), ('STMTJRNL_SPILL=131072',), ('SYSTEM_MALLOC',), ('TEMP_STORE=1',), ('THREADSAFE=2',), ('USE_URI',)]
+----------
+Set journal_mode and check after closing the cursor (should keep desired mode).
+journal_mode before: delete
+journal_mode after: delete
+sqlite's pragma compile_options are:
+[('ATOMIC_INTRINSICS=1',), ('BUG_COMPATIBLE_20160819',), ('CCCRYPT256',), ('COMPILER=clang-14.0.0',), ('DEFAULT_AUTOVACUUM',), ('DEFAULT_CACHE_SIZE=2000',), ('DEFAULT_CKPTFULLFSYNC',), ('DEFAULT_FILE_FORMAT=4',), ('DEFAULT_JOURNAL_SIZE_LIMIT=32768',), ('DEFAULT_LOOKASIDE=1200,102',), ('DEFAULT_MEMSTATUS=0',), ('DEFAULT_MMAP_SIZE=0',), ('DEFAULT_PAGE_SIZE=4096',), ('DEFAULT_PCACHE_INITSZ=20',), ('DEFAULT_RECURSIVE_TRIGGERS',), ('DEFAULT_SECTOR_SIZE=4096',), ('DEFAULT_SYNCHRONOUS=2',), ('DEFAULT_WAL_AUTOCHECKPOINT=1000',), ('DEFAULT_WAL_SYNCHRONOUS=1',), ('DEFAULT_WORKER_THREADS=0',), ('ENABLE_API_ARMOR',), ('ENABLE_BYTECODE_VTAB',), ('ENABLE_COLUMN_METADATA',), ('ENABLE_DBSTAT_VTAB',), ('ENABLE_FTS3',), ('ENABLE_FTS3_PARENTHESIS',), ('ENABLE_FTS3_TOKENIZER',), ('ENABLE_FTS4',), ('ENABLE_FTS5',), ('ENABLE_LOCKING_STYLE=1',), ('ENABLE_NORMALIZE',), ('ENABLE_PREUPDATE_HOOK',), ('ENABLE_RTREE',), ('ENABLE_SESSION',), ('ENABLE_SNAPSHOT',), ('ENABLE_SQLLOG',), ('ENABLE_STMT_SCANSTATUS',), ('ENABLE_UNKNOWN_SQL_FUNCTION',), ('ENABLE_UPDATE_DELETE_LIMIT',), ('HAS_CODEC_RESTRICTED',), ('HAVE_ISNAN',), ('MALLOC_SOFT_LIMIT=1024',), ('MAX_ATTACHED=10',), ('MAX_COLUMN=2000',), ('MAX_COMPOUND_SELECT=500',), ('MAX_DEFAULT_PAGE_SIZE=8192',), ('MAX_EXPR_DEPTH=1000',), ('MAX_FUNCTION_ARG=127',), ('MAX_LENGTH=2147483645',), ('MAX_LIKE_PATTERN_LENGTH=50000',), ('MAX_MMAP_SIZE=1073741824',), ('MAX_PAGE_COUNT=1073741823',), ('MAX_PAGE_SIZE=65536',), ('MAX_SQL_LENGTH=1000000000',), ('MAX_TRIGGER_DEPTH=1000',), ('MAX_VARIABLE_NUMBER=500000',), ('MAX_VDBE_OP=250000000',), ('MAX_WORKER_THREADS=8',), ('MUTEX_UNFAIR',), ('OMIT_AUTORESET',), ('OMIT_LOAD_EXTENSION',), ('STMTJRNL_SPILL=131072',), ('SYSTEM_MALLOC',), ('TEMP_STORE=1',), ('THREADSAFE=2',), ('USE_URI',)]
+----------
+Set journal_mode, close connection, and check with a connection (should revert to default).
+journal_mode before: delete
+journal_mode after: delete
+
+##########
+# homebrew-installed python@3.9
+##########
+/usr/local/opt/python@3.9/bin/python3.9
+Python 3.9.16 (main, Dec  7 2022, 10:15:43) 
+[Clang 14.0.0 (clang-1400.0.29.202)] on darwin
+Sqlite 3.40.1
+----------
+Set journal_mode and check it without closing the cursor (should keep desired mode).
+journal_mode before: delete
+journal_mode after: off
+----------
+Set journal_mode and check after closing the cursor (should keep desired mode).
+journal_mode before: delete
+journal_mode after: off
+----------
+Set journal_mode, close connection, and check with a connection (should revert to default).
+journal_mode before: delete
+journal_mode after: delete
+
+##########
+# homebrew-installed python@3.10
+##########
+/usr/local/opt/python@3.10/bin/python3.10
+Python 3.10.10 (main, Feb 16 2023, 02:55:02) [Clang 14.0.0 (clang-1400.0.29.202)] on darwin
+Sqlite 3.40.1
+----------
+Set journal_mode and check it without closing the cursor (should keep desired mode).
+journal_mode before: delete
+journal_mode after: off
+----------
+Set journal_mode and check after closing the cursor (should keep desired mode).
+journal_mode before: delete
+journal_mode after: off
+----------
+Set journal_mode, close connection, and check with a connection (should revert to default).
+journal_mode before: delete
+journal_mode after: delete
+
+##########
+# homebrew-installed python@3.11
+##########
+/usr/local/opt/python@3.11/bin/python3.11
+Python 3.11.2 (main, Feb 16 2023, 03:07:35) [Clang 14.0.0 (clang-1400.0.29.202)] on darwin
+Sqlite 3.40.1
+----------
+Set journal_mode and check it without closing the cursor (should keep desired mode).
+journal_mode before: delete
+journal_mode after: off
+----------
+Set journal_mode and check after closing the cursor (should keep desired mode).
+journal_mode before: delete
+journal_mode after: off
+----------
+Set journal_mode, close connection, and check with a connection (should revert to default).
+journal_mode before: delete
+journal_mode after: delete
+
+##########
+# pyenv-installed 3.9.16
+[1m[91m!!! WARNING: "delete" is not "off"[0m
+[1m[91m!!! WARNING: "delete" is not "off"[0m
+##########
+/Users/brasmith/.pyenv/versions/3.9.16/bin/python3
+Python 3.9.16 (main, Feb 22 2023, 13:06:47) 
+[Clang 14.0.0 (clang-1400.0.29.202)] on darwin
+Sqlite 3.39.5
+----------
+Set journal_mode and check it without closing the cursor (should keep desired mode).
+journal_mode before: delete
+journal_mode after: delete
+sqlite's pragma compile_options are:
+[('ATOMIC_INTRINSICS=1',), ('BUG_COMPATIBLE_20160819',), ('CCCRYPT256',), ('COMPILER=clang-14.0.0',), ('DEFAULT_AUTOVACUUM',), ('DEFAULT_CACHE_SIZE=2000',), ('DEFAULT_CKPTFULLFSYNC',), ('DEFAULT_FILE_FORMAT=4',), ('DEFAULT_JOURNAL_SIZE_LIMIT=32768',), ('DEFAULT_LOOKASIDE=1200,102',), ('DEFAULT_MEMSTATUS=0',), ('DEFAULT_MMAP_SIZE=0',), ('DEFAULT_PAGE_SIZE=4096',), ('DEFAULT_PCACHE_INITSZ=20',), ('DEFAULT_RECURSIVE_TRIGGERS',), ('DEFAULT_SECTOR_SIZE=4096',), ('DEFAULT_SYNCHRONOUS=2',), ('DEFAULT_WAL_AUTOCHECKPOINT=1000',), ('DEFAULT_WAL_SYNCHRONOUS=1',), ('DEFAULT_WORKER_THREADS=0',), ('ENABLE_API_ARMOR',), ('ENABLE_BYTECODE_VTAB',), ('ENABLE_COLUMN_METADATA',), ('ENABLE_DBSTAT_VTAB',), ('ENABLE_FTS3',), ('ENABLE_FTS3_PARENTHESIS',), ('ENABLE_FTS3_TOKENIZER',), ('ENABLE_FTS4',), ('ENABLE_FTS5',), ('ENABLE_LOCKING_STYLE=1',), ('ENABLE_NORMALIZE',), ('ENABLE_PREUPDATE_HOOK',), ('ENABLE_RTREE',), ('ENABLE_SESSION',), ('ENABLE_SNAPSHOT',), ('ENABLE_SQLLOG',), ('ENABLE_STMT_SCANSTATUS',), ('ENABLE_UNKNOWN_SQL_FUNCTION',), ('ENABLE_UPDATE_DELETE_LIMIT',), ('HAS_CODEC_RESTRICTED',), ('HAVE_ISNAN',), ('MALLOC_SOFT_LIMIT=1024',), ('MAX_ATTACHED=10',), ('MAX_COLUMN=2000',), ('MAX_COMPOUND_SELECT=500',), ('MAX_DEFAULT_PAGE_SIZE=8192',), ('MAX_EXPR_DEPTH=1000',), ('MAX_FUNCTION_ARG=127',), ('MAX_LENGTH=2147483645',), ('MAX_LIKE_PATTERN_LENGTH=50000',), ('MAX_MMAP_SIZE=1073741824',), ('MAX_PAGE_COUNT=1073741823',), ('MAX_PAGE_SIZE=65536',), ('MAX_SQL_LENGTH=1000000000',), ('MAX_TRIGGER_DEPTH=1000',), ('MAX_VARIABLE_NUMBER=500000',), ('MAX_VDBE_OP=250000000',), ('MAX_WORKER_THREADS=8',), ('MUTEX_UNFAIR',), ('OMIT_AUTORESET',), ('OMIT_LOAD_EXTENSION',), ('STMTJRNL_SPILL=131072',), ('SYSTEM_MALLOC',), ('TEMP_STORE=1',), ('THREADSAFE=2',), ('USE_URI',)]
+----------
+Set journal_mode and check after closing the cursor (should keep desired mode).
+journal_mode before: delete
+journal_mode after: delete
+sqlite's pragma compile_options are:
+[('ATOMIC_INTRINSICS=1',), ('BUG_COMPATIBLE_20160819',), ('CCCRYPT256',), ('COMPILER=clang-14.0.0',), ('DEFAULT_AUTOVACUUM',), ('DEFAULT_CACHE_SIZE=2000',), ('DEFAULT_CKPTFULLFSYNC',), ('DEFAULT_FILE_FORMAT=4',), ('DEFAULT_JOURNAL_SIZE_LIMIT=32768',), ('DEFAULT_LOOKASIDE=1200,102',), ('DEFAULT_MEMSTATUS=0',), ('DEFAULT_MMAP_SIZE=0',), ('DEFAULT_PAGE_SIZE=4096',), ('DEFAULT_PCACHE_INITSZ=20',), ('DEFAULT_RECURSIVE_TRIGGERS',), ('DEFAULT_SECTOR_SIZE=4096',), ('DEFAULT_SYNCHRONOUS=2',), ('DEFAULT_WAL_AUTOCHECKPOINT=1000',), ('DEFAULT_WAL_SYNCHRONOUS=1',), ('DEFAULT_WORKER_THREADS=0',), ('ENABLE_API_ARMOR',), ('ENABLE_BYTECODE_VTAB',), ('ENABLE_COLUMN_METADATA',), ('ENABLE_DBSTAT_VTAB',), ('ENABLE_FTS3',), ('ENABLE_FTS3_PARENTHESIS',), ('ENABLE_FTS3_TOKENIZER',), ('ENABLE_FTS4',), ('ENABLE_FTS5',), ('ENABLE_LOCKING_STYLE=1',), ('ENABLE_NORMALIZE',), ('ENABLE_PREUPDATE_HOOK',), ('ENABLE_RTREE',), ('ENABLE_SESSION',), ('ENABLE_SNAPSHOT',), ('ENABLE_SQLLOG',), ('ENABLE_STMT_SCANSTATUS',), ('ENABLE_UNKNOWN_SQL_FUNCTION',), ('ENABLE_UPDATE_DELETE_LIMIT',), ('HAS_CODEC_RESTRICTED',), ('HAVE_ISNAN',), ('MALLOC_SOFT_LIMIT=1024',), ('MAX_ATTACHED=10',), ('MAX_COLUMN=2000',), ('MAX_COMPOUND_SELECT=500',), ('MAX_DEFAULT_PAGE_SIZE=8192',), ('MAX_EXPR_DEPTH=1000',), ('MAX_FUNCTION_ARG=127',), ('MAX_LENGTH=2147483645',), ('MAX_LIKE_PATTERN_LENGTH=50000',), ('MAX_MMAP_SIZE=1073741824',), ('MAX_PAGE_COUNT=1073741823',), ('MAX_PAGE_SIZE=65536',), ('MAX_SQL_LENGTH=1000000000',), ('MAX_TRIGGER_DEPTH=1000',), ('MAX_VARIABLE_NUMBER=500000',), ('MAX_VDBE_OP=250000000',), ('MAX_WORKER_THREADS=8',), ('MUTEX_UNFAIR',), ('OMIT_AUTORESET',), ('OMIT_LOAD_EXTENSION',), ('STMTJRNL_SPILL=131072',), ('SYSTEM_MALLOC',), ('TEMP_STORE=1',), ('THREADSAFE=2',), ('USE_URI',)]
+----------
+Set journal_mode, close connection, and check with a connection (should revert to default).
+journal_mode before: delete
+journal_mode after: delete
+
+##########
+# pyenv-installed 3.10.5
+[1m[91m!!! WARNING: "delete" is not "off"[0m
+[1m[91m!!! WARNING: "delete" is not "off"[0m
+##########
+/Users/brasmith/.pyenv/versions/3.10.5/bin/python3
+Python 3.10.5 (main, Jun 17 2022, 16:21:05) [Clang 13.1.6 (clang-1316.0.21.2.3)] on darwin
+Sqlite 3.39.5
+----------
+Set journal_mode and check it without closing the cursor (should keep desired mode).
+journal_mode before: delete
+journal_mode after: delete
+sqlite's pragma compile_options are:
+[('ATOMIC_INTRINSICS=1',), ('BUG_COMPATIBLE_20160819',), ('CCCRYPT256',), ('COMPILER=clang-14.0.0',), ('DEFAULT_AUTOVACUUM',), ('DEFAULT_CACHE_SIZE=2000',), ('DEFAULT_CKPTFULLFSYNC',), ('DEFAULT_FILE_FORMAT=4',), ('DEFAULT_JOURNAL_SIZE_LIMIT=32768',), ('DEFAULT_LOOKASIDE=1200,102',), ('DEFAULT_MEMSTATUS=0',), ('DEFAULT_MMAP_SIZE=0',), ('DEFAULT_PAGE_SIZE=4096',), ('DEFAULT_PCACHE_INITSZ=20',), ('DEFAULT_RECURSIVE_TRIGGERS',), ('DEFAULT_SECTOR_SIZE=4096',), ('DEFAULT_SYNCHRONOUS=2',), ('DEFAULT_WAL_AUTOCHECKPOINT=1000',), ('DEFAULT_WAL_SYNCHRONOUS=1',), ('DEFAULT_WORKER_THREADS=0',), ('ENABLE_API_ARMOR',), ('ENABLE_BYTECODE_VTAB',), ('ENABLE_COLUMN_METADATA',), ('ENABLE_DBSTAT_VTAB',), ('ENABLE_FTS3',), ('ENABLE_FTS3_PARENTHESIS',), ('ENABLE_FTS3_TOKENIZER',), ('ENABLE_FTS4',), ('ENABLE_FTS5',), ('ENABLE_LOCKING_STYLE=1',), ('ENABLE_NORMALIZE',), ('ENABLE_PREUPDATE_HOOK',), ('ENABLE_RTREE',), ('ENABLE_SESSION',), ('ENABLE_SNAPSHOT',), ('ENABLE_SQLLOG',), ('ENABLE_STMT_SCANSTATUS',), ('ENABLE_UNKNOWN_SQL_FUNCTION',), ('ENABLE_UPDATE_DELETE_LIMIT',), ('HAS_CODEC_RESTRICTED',), ('HAVE_ISNAN',), ('MALLOC_SOFT_LIMIT=1024',), ('MAX_ATTACHED=10',), ('MAX_COLUMN=2000',), ('MAX_COMPOUND_SELECT=500',), ('MAX_DEFAULT_PAGE_SIZE=8192',), ('MAX_EXPR_DEPTH=1000',), ('MAX_FUNCTION_ARG=127',), ('MAX_LENGTH=2147483645',), ('MAX_LIKE_PATTERN_LENGTH=50000',), ('MAX_MMAP_SIZE=1073741824',), ('MAX_PAGE_COUNT=1073741823',), ('MAX_PAGE_SIZE=65536',), ('MAX_SQL_LENGTH=1000000000',), ('MAX_TRIGGER_DEPTH=1000',), ('MAX_VARIABLE_NUMBER=500000',), ('MAX_VDBE_OP=250000000',), ('MAX_WORKER_THREADS=8',), ('MUTEX_UNFAIR',), ('OMIT_AUTORESET',), ('OMIT_LOAD_EXTENSION',), ('STMTJRNL_SPILL=131072',), ('SYSTEM_MALLOC',), ('TEMP_STORE=1',), ('THREADSAFE=2',), ('USE_URI',)]
+----------
+Set journal_mode and check after closing the cursor (should keep desired mode).
+journal_mode before: delete
+journal_mode after: delete
+sqlite's pragma compile_options are:
+[('ATOMIC_INTRINSICS=1',), ('BUG_COMPATIBLE_20160819',), ('CCCRYPT256',), ('COMPILER=clang-14.0.0',), ('DEFAULT_AUTOVACUUM',), ('DEFAULT_CACHE_SIZE=2000',), ('DEFAULT_CKPTFULLFSYNC',), ('DEFAULT_FILE_FORMAT=4',), ('DEFAULT_JOURNAL_SIZE_LIMIT=32768',), ('DEFAULT_LOOKASIDE=1200,102',), ('DEFAULT_MEMSTATUS=0',), ('DEFAULT_MMAP_SIZE=0',), ('DEFAULT_PAGE_SIZE=4096',), ('DEFAULT_PCACHE_INITSZ=20',), ('DEFAULT_RECURSIVE_TRIGGERS',), ('DEFAULT_SECTOR_SIZE=4096',), ('DEFAULT_SYNCHRONOUS=2',), ('DEFAULT_WAL_AUTOCHECKPOINT=1000',), ('DEFAULT_WAL_SYNCHRONOUS=1',), ('DEFAULT_WORKER_THREADS=0',), ('ENABLE_API_ARMOR',), ('ENABLE_BYTECODE_VTAB',), ('ENABLE_COLUMN_METADATA',), ('ENABLE_DBSTAT_VTAB',), ('ENABLE_FTS3',), ('ENABLE_FTS3_PARENTHESIS',), ('ENABLE_FTS3_TOKENIZER',), ('ENABLE_FTS4',), ('ENABLE_FTS5',), ('ENABLE_LOCKING_STYLE=1',), ('ENABLE_NORMALIZE',), ('ENABLE_PREUPDATE_HOOK',), ('ENABLE_RTREE',), ('ENABLE_SESSION',), ('ENABLE_SNAPSHOT',), ('ENABLE_SQLLOG',), ('ENABLE_STMT_SCANSTATUS',), ('ENABLE_UNKNOWN_SQL_FUNCTION',), ('ENABLE_UPDATE_DELETE_LIMIT',), ('HAS_CODEC_RESTRICTED',), ('HAVE_ISNAN',), ('MALLOC_SOFT_LIMIT=1024',), ('MAX_ATTACHED=10',), ('MAX_COLUMN=2000',), ('MAX_COMPOUND_SELECT=500',), ('MAX_DEFAULT_PAGE_SIZE=8192',), ('MAX_EXPR_DEPTH=1000',), ('MAX_FUNCTION_ARG=127',), ('MAX_LENGTH=2147483645',), ('MAX_LIKE_PATTERN_LENGTH=50000',), ('MAX_MMAP_SIZE=1073741824',), ('MAX_PAGE_COUNT=1073741823',), ('MAX_PAGE_SIZE=65536',), ('MAX_SQL_LENGTH=1000000000',), ('MAX_TRIGGER_DEPTH=1000',), ('MAX_VARIABLE_NUMBER=500000',), ('MAX_VDBE_OP=250000000',), ('MAX_WORKER_THREADS=8',), ('MUTEX_UNFAIR',), ('OMIT_AUTORESET',), ('OMIT_LOAD_EXTENSION',), ('STMTJRNL_SPILL=131072',), ('SYSTEM_MALLOC',), ('TEMP_STORE=1',), ('THREADSAFE=2',), ('USE_URI',)]
+----------
+Set journal_mode, close connection, and check with a connection (should revert to default).
+journal_mode before: delete
+journal_mode after: delete
+
+##########
+# pyenv-installed 3.11.2
+[1m[91m!!! WARNING: "delete" is not "off"[0m
+[1m[91m!!! WARNING: "delete" is not "off"[0m
+##########
+/Users/brasmith/.pyenv/versions/3.11.2/bin/python3
+Python 3.11.2 (main, Feb 22 2023, 11:43:32) [Clang 14.0.0 (clang-1400.0.29.202)] on darwin
+Sqlite 3.39.5
+----------
+Set journal_mode and check it without closing the cursor (should keep desired mode).
+journal_mode before: delete
+journal_mode after: delete
+sqlite's pragma compile_options are:
+[('ATOMIC_INTRINSICS=1',), ('BUG_COMPATIBLE_20160819',), ('CCCRYPT256',), ('COMPILER=clang-14.0.0',), ('DEFAULT_AUTOVACUUM',), ('DEFAULT_CACHE_SIZE=2000',), ('DEFAULT_CKPTFULLFSYNC',), ('DEFAULT_FILE_FORMAT=4',), ('DEFAULT_JOURNAL_SIZE_LIMIT=32768',), ('DEFAULT_LOOKASIDE=1200,102',), ('DEFAULT_MEMSTATUS=0',), ('DEFAULT_MMAP_SIZE=0',), ('DEFAULT_PAGE_SIZE=4096',), ('DEFAULT_PCACHE_INITSZ=20',), ('DEFAULT_RECURSIVE_TRIGGERS',), ('DEFAULT_SECTOR_SIZE=4096',), ('DEFAULT_SYNCHRONOUS=2',), ('DEFAULT_WAL_AUTOCHECKPOINT=1000',), ('DEFAULT_WAL_SYNCHRONOUS=1',), ('DEFAULT_WORKER_THREADS=0',), ('ENABLE_API_ARMOR',), ('ENABLE_BYTECODE_VTAB',), ('ENABLE_COLUMN_METADATA',), ('ENABLE_DBSTAT_VTAB',), ('ENABLE_FTS3',), ('ENABLE_FTS3_PARENTHESIS',), ('ENABLE_FTS3_TOKENIZER',), ('ENABLE_FTS4',), ('ENABLE_FTS5',), ('ENABLE_LOCKING_STYLE=1',), ('ENABLE_NORMALIZE',), ('ENABLE_PREUPDATE_HOOK',), ('ENABLE_RTREE',), ('ENABLE_SESSION',), ('ENABLE_SNAPSHOT',), ('ENABLE_SQLLOG',), ('ENABLE_STMT_SCANSTATUS',), ('ENABLE_UNKNOWN_SQL_FUNCTION',), ('ENABLE_UPDATE_DELETE_LIMIT',), ('HAS_CODEC_RESTRICTED',), ('HAVE_ISNAN',), ('MALLOC_SOFT_LIMIT=1024',), ('MAX_ATTACHED=10',), ('MAX_COLUMN=2000',), ('MAX_COMPOUND_SELECT=500',), ('MAX_DEFAULT_PAGE_SIZE=8192',), ('MAX_EXPR_DEPTH=1000',), ('MAX_FUNCTION_ARG=127',), ('MAX_LENGTH=2147483645',), ('MAX_LIKE_PATTERN_LENGTH=50000',), ('MAX_MMAP_SIZE=1073741824',), ('MAX_PAGE_COUNT=1073741823',), ('MAX_PAGE_SIZE=65536',), ('MAX_SQL_LENGTH=1000000000',), ('MAX_TRIGGER_DEPTH=1000',), ('MAX_VARIABLE_NUMBER=500000',), ('MAX_VDBE_OP=250000000',), ('MAX_WORKER_THREADS=8',), ('MUTEX_UNFAIR',), ('OMIT_AUTORESET',), ('OMIT_LOAD_EXTENSION',), ('STMTJRNL_SPILL=131072',), ('SYSTEM_MALLOC',), ('TEMP_STORE=1',), ('THREADSAFE=2',), ('USE_URI',)]
+----------
+Set journal_mode and check after closing the cursor (should keep desired mode).
+journal_mode before: delete
+journal_mode after: delete
+sqlite's pragma compile_options are:
+[('ATOMIC_INTRINSICS=1',), ('BUG_COMPATIBLE_20160819',), ('CCCRYPT256',), ('COMPILER=clang-14.0.0',), ('DEFAULT_AUTOVACUUM',), ('DEFAULT_CACHE_SIZE=2000',), ('DEFAULT_CKPTFULLFSYNC',), ('DEFAULT_FILE_FORMAT=4',), ('DEFAULT_JOURNAL_SIZE_LIMIT=32768',), ('DEFAULT_LOOKASIDE=1200,102',), ('DEFAULT_MEMSTATUS=0',), ('DEFAULT_MMAP_SIZE=0',), ('DEFAULT_PAGE_SIZE=4096',), ('DEFAULT_PCACHE_INITSZ=20',), ('DEFAULT_RECURSIVE_TRIGGERS',), ('DEFAULT_SECTOR_SIZE=4096',), ('DEFAULT_SYNCHRONOUS=2',), ('DEFAULT_WAL_AUTOCHECKPOINT=1000',), ('DEFAULT_WAL_SYNCHRONOUS=1',), ('DEFAULT_WORKER_THREADS=0',), ('ENABLE_API_ARMOR',), ('ENABLE_BYTECODE_VTAB',), ('ENABLE_COLUMN_METADATA',), ('ENABLE_DBSTAT_VTAB',), ('ENABLE_FTS3',), ('ENABLE_FTS3_PARENTHESIS',), ('ENABLE_FTS3_TOKENIZER',), ('ENABLE_FTS4',), ('ENABLE_FTS5',), ('ENABLE_LOCKING_STYLE=1',), ('ENABLE_NORMALIZE',), ('ENABLE_PREUPDATE_HOOK',), ('ENABLE_RTREE',), ('ENABLE_SESSION',), ('ENABLE_SNAPSHOT',), ('ENABLE_SQLLOG',), ('ENABLE_STMT_SCANSTATUS',), ('ENABLE_UNKNOWN_SQL_FUNCTION',), ('ENABLE_UPDATE_DELETE_LIMIT',), ('HAS_CODEC_RESTRICTED',), ('HAVE_ISNAN',), ('MALLOC_SOFT_LIMIT=1024',), ('MAX_ATTACHED=10',), ('MAX_COLUMN=2000',), ('MAX_COMPOUND_SELECT=500',), ('MAX_DEFAULT_PAGE_SIZE=8192',), ('MAX_EXPR_DEPTH=1000',), ('MAX_FUNCTION_ARG=127',), ('MAX_LENGTH=2147483645',), ('MAX_LIKE_PATTERN_LENGTH=50000',), ('MAX_MMAP_SIZE=1073741824',), ('MAX_PAGE_COUNT=1073741823',), ('MAX_PAGE_SIZE=65536',), ('MAX_SQL_LENGTH=1000000000',), ('MAX_TRIGGER_DEPTH=1000',), ('MAX_VARIABLE_NUMBER=500000',), ('MAX_VDBE_OP=250000000',), ('MAX_WORKER_THREADS=8',), ('MUTEX_UNFAIR',), ('OMIT_AUTORESET',), ('OMIT_LOAD_EXTENSION',), ('STMTJRNL_SPILL=131072',), ('SYSTEM_MALLOC',), ('TEMP_STORE=1',), ('THREADSAFE=2',), ('USE_URI',)]
+----------
+Set journal_mode, close connection, and check with a connection (should revert to default).
+journal_mode before: delete
+journal_mode after: delete
+
+##########
+# Docker python:latest
+##########
+/usr/local/bin/python3
+Python 3.11.2 (main, Feb 11 2023, 02:24:27) [GCC 10.2.1 20210110] on linux
+Sqlite 3.34.1
+----------
+Set journal_mode and check it without closing the cursor (should keep desired mode).
+journal_mode before: delete
+journal_mode after: off
+----------
+Set journal_mode and check after closing the cursor (should keep desired mode).
+journal_mode before: delete
+journal_mode after: off
+----------
+Set journal_mode, close connection, and check with a connection (should revert to default).
+journal_mode before: delete
+journal_mode after: delete
+
+##########
+# Docker python:3.9
+##########
+/usr/local/bin/python3
+Python 3.9.16 (main, Feb 11 2023, 02:49:26) 
+[GCC 10.2.1 20210110] on linux
+Sqlite 3.34.1
+----------
+Set journal_mode and check it without closing the cursor (should keep desired mode).
+journal_mode before: delete
+journal_mode after: off
+----------
+Set journal_mode and check after closing the cursor (should keep desired mode).
+journal_mode before: delete
+journal_mode after: off
+----------
+Set journal_mode, close connection, and check with a connection (should revert to default).
+journal_mode before: delete
+journal_mode after: delete
+
+##########
+# Docker python:3.9-alpine
+##########
+/usr/local/bin/python3
+Python 3.9.16 (main, Feb 11 2023, 12:44:09) 
+[GCC 12.2.1 20220924] on linux
+Sqlite 3.40.1
+----------
+Set journal_mode and check it without closing the cursor (should keep desired mode).
+journal_mode before: delete
+journal_mode after: off
+----------
+Set journal_mode and check after closing the cursor (should keep desired mode).
+journal_mode before: delete
+journal_mode after: off
+----------
+Set journal_mode, close connection, and check with a connection (should revert to default).
+journal_mode before: delete
+journal_mode after: delete
+
+##########
+# Docker pypy:3.9
+##########
+/opt/pypy/bin/python3
+Python 3.9.16 (feeb267ead3e6771d3f2f49b83e1894839f64fb7, Dec 29 2022, 14:23:21)
+[PyPy 7.3.11 with GCC 10.2.1 20210130 (Red Hat 10.2.1-11)] on linux
+Sqlite 3.34.1
+----------
+Set journal_mode and check it without closing the cursor (should keep desired mode).
+journal_mode before: delete
+journal_mode after: off
+----------
+Set journal_mode and check after closing the cursor (should keep desired mode).
+journal_mode before: delete
+journal_mode after: off
+----------
+Set journal_mode, close connection, and check with a connection (should revert to default).
+journal_mode before: delete
+journal_mode after: delete
+
+##########
+# Docker ubi8/ubi-minimal (python39)
+##########
+/usr/bin/python3
+Python 3.9.13 (main, Nov  9 2022, 13:16:24) 
+[GCC 8.5.0 20210514 (Red Hat 8.5.0-15)] on linux
+Sqlite 3.26.0
+----------
+Set journal_mode and check it without closing the cursor (should keep desired mode).
+journal_mode before: delete
+journal_mode after: off
+----------
+Set journal_mode and check after closing the cursor (should keep desired mode).
+journal_mode before: delete
+journal_mode after: off
+----------
+Set journal_mode, close connection, and check with a connection (should revert to default).
+journal_mode before: delete
+journal_mode after: delete
+
+####################
+# Attempting to set journal_mode=memory
+
+##########
+# Default /usr/bin/python3
+##########
+/Library/Developer/CommandLineTools/usr/bin/python3
+Python 3.9.6 (default, Oct 18 2022, 12:41:40) 
+[Clang 14.0.0 (clang-1400.0.29.202)] on darwin
+Sqlite 3.39.5
+----------
+Set journal_mode and check it without closing the cursor (should keep desired mode).
+journal_mode before: delete
+journal_mode after: memory
+----------
+Set journal_mode and check after closing the cursor (should keep desired mode).
+journal_mode before: delete
+journal_mode after: memory
+----------
+Set journal_mode, close connection, and check with a connection (should revert to default).
+journal_mode before: delete
+journal_mode after: delete
+
+##########
+# homebrew-installed python@3.9
+##########
+/usr/local/opt/python@3.9/bin/python3.9
+Python 3.9.16 (main, Dec  7 2022, 10:15:43) 
+[Clang 14.0.0 (clang-1400.0.29.202)] on darwin
+Sqlite 3.40.1
+----------
+Set journal_mode and check it without closing the cursor (should keep desired mode).
+journal_mode before: delete
+journal_mode after: memory
+----------
+Set journal_mode and check after closing the cursor (should keep desired mode).
+journal_mode before: delete
+journal_mode after: memory
+----------
+Set journal_mode, close connection, and check with a connection (should revert to default).
+journal_mode before: delete
+journal_mode after: delete
+
+##########
+# homebrew-installed python@3.10
+##########
+/usr/local/opt/python@3.10/bin/python3.10
+Python 3.10.10 (main, Feb 16 2023, 02:55:02) [Clang 14.0.0 (clang-1400.0.29.202)] on darwin
+Sqlite 3.40.1
+----------
+Set journal_mode and check it without closing the cursor (should keep desired mode).
+journal_mode before: delete
+journal_mode after: memory
+----------
+Set journal_mode and check after closing the cursor (should keep desired mode).
+journal_mode before: delete
+journal_mode after: memory
+----------
+Set journal_mode, close connection, and check with a connection (should revert to default).
+journal_mode before: delete
+journal_mode after: delete
+
+##########
+# homebrew-installed python@3.11
+##########
+/usr/local/opt/python@3.11/bin/python3.11
+Python 3.11.2 (main, Feb 16 2023, 03:07:35) [Clang 14.0.0 (clang-1400.0.29.202)] on darwin
+Sqlite 3.40.1
+----------
+Set journal_mode and check it without closing the cursor (should keep desired mode).
+journal_mode before: delete
+journal_mode after: memory
+----------
+Set journal_mode and check after closing the cursor (should keep desired mode).
+journal_mode before: delete
+journal_mode after: memory
+----------
+Set journal_mode, close connection, and check with a connection (should revert to default).
+journal_mode before: delete
+journal_mode after: delete
+
+##########
+# pyenv-installed 3.9.16
+##########
+/Users/brasmith/.pyenv/versions/3.9.16/bin/python3
+Python 3.9.16 (main, Feb 22 2023, 13:06:47) 
+[Clang 14.0.0 (clang-1400.0.29.202)] on darwin
+Sqlite 3.39.5
+----------
+Set journal_mode and check it without closing the cursor (should keep desired mode).
+journal_mode before: delete
+journal_mode after: memory
+----------
+Set journal_mode and check after closing the cursor (should keep desired mode).
+journal_mode before: delete
+journal_mode after: memory
+----------
+Set journal_mode, close connection, and check with a connection (should revert to default).
+journal_mode before: delete
+journal_mode after: delete
+
+##########
+# pyenv-installed 3.10.5
+##########
+/Users/brasmith/.pyenv/versions/3.10.5/bin/python3
+Python 3.10.5 (main, Jun 17 2022, 16:21:05) [Clang 13.1.6 (clang-1316.0.21.2.3)] on darwin
+Sqlite 3.39.5
+----------
+Set journal_mode and check it without closing the cursor (should keep desired mode).
+journal_mode before: delete
+journal_mode after: memory
+----------
+Set journal_mode and check after closing the cursor (should keep desired mode).
+journal_mode before: delete
+journal_mode after: memory
+----------
+Set journal_mode, close connection, and check with a connection (should revert to default).
+journal_mode before: delete
+journal_mode after: delete
+
+##########
+# pyenv-installed 3.11.2
+##########
+/Users/brasmith/.pyenv/versions/3.11.2/bin/python3
+Python 3.11.2 (main, Feb 22 2023, 11:43:32) [Clang 14.0.0 (clang-1400.0.29.202)] on darwin
+Sqlite 3.39.5
+----------
+Set journal_mode and check it without closing the cursor (should keep desired mode).
+journal_mode before: delete
+journal_mode after: memory
+----------
+Set journal_mode and check after closing the cursor (should keep desired mode).
+journal_mode before: delete
+journal_mode after: memory
+----------
+Set journal_mode, close connection, and check with a connection (should revert to default).
+journal_mode before: delete
+journal_mode after: delete
+
+##########
+# Docker python:latest
+##########
+/usr/local/bin/python3
+Python 3.11.2 (main, Feb 11 2023, 02:24:27) [GCC 10.2.1 20210110] on linux
+Sqlite 3.34.1
+----------
+Set journal_mode and check it without closing the cursor (should keep desired mode).
+journal_mode before: delete
+journal_mode after: memory
+----------
+Set journal_mode and check after closing the cursor (should keep desired mode).
+journal_mode before: delete
+journal_mode after: memory
+----------
+Set journal_mode, close connection, and check with a connection (should revert to default).
+journal_mode before: delete
+journal_mode after: delete
+
+##########
+# Docker python:3.9
+##########
+/usr/local/bin/python3
+Python 3.9.16 (main, Feb 11 2023, 02:49:26) 
+[GCC 10.2.1 20210110] on linux
+Sqlite 3.34.1
+----------
+Set journal_mode and check it without closing the cursor (should keep desired mode).
+journal_mode before: delete
+journal_mode after: memory
+----------
+Set journal_mode and check after closing the cursor (should keep desired mode).
+journal_mode before: delete
+journal_mode after: memory
+----------
+Set journal_mode, close connection, and check with a connection (should revert to default).
+journal_mode before: delete
+journal_mode after: delete
+
+##########
+# Docker python:3.9-alpine
+##########
+/usr/local/bin/python3
+Python 3.9.16 (main, Feb 11 2023, 12:44:09) 
+[GCC 12.2.1 20220924] on linux
+Sqlite 3.40.1
+----------
+Set journal_mode and check it without closing the cursor (should keep desired mode).
+journal_mode before: delete
+journal_mode after: memory
+----------
+Set journal_mode and check after closing the cursor (should keep desired mode).
+journal_mode before: delete
+journal_mode after: memory
+----------
+Set journal_mode, close connection, and check with a connection (should revert to default).
+journal_mode before: delete
+journal_mode after: delete
+
+##########
+# Docker pypy:3.9
+##########
+/opt/pypy/bin/python3
+Python 3.9.16 (feeb267ead3e6771d3f2f49b83e1894839f64fb7, Dec 29 2022, 14:23:21)
+[PyPy 7.3.11 with GCC 10.2.1 20210130 (Red Hat 10.2.1-11)] on linux
+Sqlite 3.34.1
+----------
+Set journal_mode and check it without closing the cursor (should keep desired mode).
+journal_mode before: delete
+journal_mode after: memory
+----------
+Set journal_mode and check after closing the cursor (should keep desired mode).
+journal_mode before: delete
+journal_mode after: memory
+----------
+Set journal_mode, close connection, and check with a connection (should revert to default).
+journal_mode before: delete
+journal_mode after: delete
+
+##########
+# Docker ubi8/ubi-minimal (python39)
+##########
+/usr/bin/python3
+Python 3.9.13 (main, Nov  9 2022, 13:16:24) 
+[GCC 8.5.0 20210514 (Red Hat 8.5.0-15)] on linux
+Sqlite 3.26.0
+----------
+Set journal_mode and check it without closing the cursor (should keep desired mode).
+journal_mode before: delete
+journal_mode after: memory
+----------
+Set journal_mode and check after closing the cursor (should keep desired mode).
+journal_mode before: delete
+journal_mode after: memory
+----------
+Set journal_mode, close connection, and check with a connection (should revert to default).
+journal_mode before: delete
+journal_mode after: delete
