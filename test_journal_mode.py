@@ -8,12 +8,6 @@ def new_db_path():
     return f"/tmp/test_journal_mode_sqlite.{uuid.uuid4()}"
 
 
-def populate_dummy_schema(con):
-    con.execute("create table dummy (message text)")
-    con.execute("insert into dummy (message) values (?)", ("hello",))
-    con.execute("insert into dummy (message) values (?)", ("world",))
-
-
 def current_journal_mode(con):
     return con.execute("pragma journal_mode").fetchone()[0]
 
